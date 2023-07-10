@@ -3,31 +3,31 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebas
 import { createUserWithEmailAndPassword, getAuth } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDrHlplpy5xAf_yPGreVtsJZuBTZgjTsy8",
-  authDomain: "certus-sur-i43.firebaseapp.com",
-  projectId: "certus-sur-i43",
-  storageBucket: "certus-sur-i43.appspot.com",
-  messagingSenderId: "14690433088",
-  appId: "1:14690433088:web:163b6941a4e613548507a5",
-  measurementId: "G-R23RJWGT8V"
+  apiKey: "AIzaSyAtOKcoCxyXNPuSxqh9Onc2rRfkW31csTg",
+  authDomain: "certus-jimena.firebaseapp.com",
+  projectId: "certus-jimena",
+  storageBucket: "certus-jimena.appspot.com",
+  messagingSenderId: "760533627043",
+  appId: "1:760533627043:web:af7d59d68f11311408cf16",
+  measurementId: "G-KHV0H439CM"
 };
-
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const auth = getAuth(app);
 
 const form = document.getElementById('form');
-
+console.log(form);
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
+  console.log('comida');
   const email = form['email'].value;
   const password = form['password'].value;
 
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const user = userCredential.user;
-      localStorage.setItem('tienditaFelizUser',JSON.stringify(user));
+      localStorage.setItem('tienditaFelizUser', JSON.stringify(user));
       form.reset();
     })
     .catch((error) => {
