@@ -26,10 +26,9 @@ form.addEventListener('submit', (e) => {
 
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      console.log(userCredential);
-      console.log(userCredential.user);
       const user = userCredential.user;
-      alert('Registrado')
+      localStorage.setItem('tienditaFelizUser',JSON.stringify(user));
+      form.reset();
     })
     .catch((error) => {
       const errorCode = error.code;
